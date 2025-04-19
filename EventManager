@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class EventManager {
+    private List<Event> events;
+
+    public EventManager() {
+        events = new ArrayList<>();
+    }
+
+    public void addEvent(String name, String date, String location) {
+        Event event = new Event(name, date, location);
+        events.add(event);
+        System.out.println("✅ Event added successfully!\n");
+    }
+
+    public void viewAllEvents() {
+        if (events.isEmpty()) {
+            System.out.println("❌ No events to display.\n");
+            return;
+        }
+        for (Event e : events) {
+            e.displayEvent();
+        }
+    }
